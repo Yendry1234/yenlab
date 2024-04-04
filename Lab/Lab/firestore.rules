@@ -1,0 +1,127 @@
+rules_version = '2';
+
+service cloud.firestore {
+	match /databases/{database}/documents {
+		match /{datosUsuarios}/{document=**}{
+				allow read:if true;
+				allow create: if request.resource.data.idemp is string &&
+									request.resource.data.usuario is string &&
+									request.resource.data.email is string &&
+									request.resource.data.createDate is string;
+				allow update: if true;
+				allow delete: if false;
+		}
+		match /{categories}/{document=**}{
+				allow read:if true;
+				allow create: if request.resource.data.CategoryID is string &&
+								 request.resource.data.CategoryName is string &&
+								 request.resource.data.Description is string;
+				allow update: if true;
+				allow delete: if false;
+		}
+		match /{customer}/{document=**}{
+				allow read:if true;
+				allow create: if request.resource.data.CustomerID is string &&
+							     request.resource.data.CompanyName is string &&
+								 request.resource.data.ContactName is string &&
+								 request.resource.data.ContactTitle is string &&
+								 request.resource.data.Address is string &&
+								 request.resource.data.City is string &&
+								 request.resource.data.Region is string &&
+								 request.resource.data.PostalCode is string &&
+								 request.resource.data.Country is string &&
+								 request.resource.data.Phone is string &&
+								 request.resource.data.Fax is string;
+				allow update: if true;
+				allow delete: if false;
+		}
+		match /{employees}/{document=**}{
+				allow read:if true;
+				allow create: if request.resource.data.EmployeeID is string &&
+							     request.resource.data.LastName is string &&
+								 request.resource.data.FirstName is string &&
+								 request.resource.data.Title is string &&
+								 request.resource.data.TitleOfCourtesy is string &&
+								 request.resource.data.BirthDate is string &&
+								 request.resource.data.HireDate is string &&
+								 request.resource.data.Address is string &&
+								 request.resource.data.City is string &&
+								 request.resource.data.Region is string &&
+								 request.resource.data.PostalCode is string &&
+								 request.resource.data.Country is string &&
+								 request.resource.data.HomePhone is string &&
+								 request.resource.data.Extension is string;
+				allow update: if true;
+				allow delete: if false;
+		}
+		match /{orderDetails}/{document=**}{
+				allow read:if true;
+				allow create: if request.resource.data.OrderID is string &&
+								 request.resource.data.ProductID is string &&
+								 request.resource.data.UnitPrice is string &&
+								 request.resource.data.Quantity is string &&
+								 request.resource.data.Discount is string;
+				allow update: if true;
+				allow delete: if false;
+		}
+		match /{orders}/{document=**}{
+				allow read:if true;
+				allow create: if request.resource.data.OrderID is string &&
+								 request.resource.data.CustomerID is string &&
+								 request.resource.data.EmployeeID is string &&
+								 request.resource.data.OrderDate is string &&
+								 request.resource.data.RequiredDate is string &&
+								 request.resource.data.ShippedDate is string &&
+								 request.resource.data.ShipVia is string &&
+								 request.resource.data.Freight is string &&
+								 request.resource.data.ShipName is string &&
+								 request.resource.data.ShipAddress is string &&
+								 request.resource.data.ShipCity is string &&
+								 request.resource.data.ShipRegion is string &&
+								 request.resource.data.ShipPostalCode is string &&
+								 request.resource.data.ShipCountry is string;
+				allow update: if true;
+				allow delete: if false;
+		}
+		match /{products}/{document=**}{
+				allow read:if true;
+				allow create: if request.resource.data.ProductID is string &&
+								 request.resource.data.ProductName is string &&
+								 request.resource.data.SupplierID is string &&
+								 request.resource.data.CategoryID is string &&
+								 request.resource.data.QuantityPerUnit is string &&
+								 request.resource.data.UnitPrice is string &&
+								 request.resource.data.UnitsInStock is string &&
+								 request.resource.data.UnitsOnOrder is string &&
+								 request.resource.data.ReorderLevel is string &&
+								 request.resource.data.Discontinued is string;
+				allow update: if true;
+				allow delete: if false;
+		}
+		match /{shippers}/{document=**}{
+				allow read:if true;
+				allow create: if request.resource.data.ShipperID is string &&
+								 request.resource.data.CompanyName is string &&
+								 request.resource.data.Phone is string;
+				allow update: if true;
+				allow delete: if false;
+		}
+		match /{suppliers}/{document=**}{
+				allow read:if true;
+				allow create: if request.resource.data.SupplierID is string &&
+								 request.resource.data.CompanyName is string &&
+								 request.resource.data.ContactName is string &&
+								 request.resource.data.ContactTitle is string &&
+								 request.resource.data.Address is string &&
+								 request.resource.data.City is string &&
+								 request.resource.data.Region is string &&
+								 request.resource.data.PostalCode is string &&
+								 request.resource.data.Country is string &&
+								 request.resource.data.Phone is string &&
+								 request.resource.data.Fax is string &&
+								 request.resource.data.HomePage is string;
+				allow update: if true;
+				allow delete: if false;
+		}
+	}
+}
